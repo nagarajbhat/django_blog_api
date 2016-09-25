@@ -1,0 +1,18 @@
+from django.conf.urls import url,include
+from .views import (
+    ArticleCreateAPIView,
+    ArticleDeleteAPIView,
+    ArticleDetailAPIView,
+    ArticleListAPIView,
+    ArticleUpdateAPIView,
+    )
+
+
+
+urlpatterns = [
+    url(r'^$', ArticleListAPIView.as_view(), name='list'),
+    url(r'^create/$', ArticleCreateAPIView.as_view(), name='create'),
+    url(r'^(?P<pk>[\w-]+)/$', ArticleDetailAPIView.as_view(), name='detail'),
+    url(r'^(?P<pk>[\w-]+)/edit/$', ArticleUpdateAPIView.as_view(), name='update'),
+    url(r'^(?P<pk>[\w-]+)/delete/$', ArticleDeleteAPIView.as_view(), name='delete'),
+]
