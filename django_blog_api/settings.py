@@ -58,7 +58,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_blog_api.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
