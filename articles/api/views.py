@@ -10,40 +10,44 @@ from .serializers import ArticleSerializer
 from .serializers import ArticleCreateUpdateSerializer
 from .permissions import IsOwnerOrReadOnly
 
-
-class ArticleMixin(object):
-    queryset = Article.objects.all()
-    serializer_class = ArticleSerializer
-    permission_classes = (IsOwnerOrReadOnly,)
-
-    def pre_save(self, obj):
-        obj.user = self.request.user
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+    IsAdminUser,
+    IsAuthenticatedOrReadOnly,
+)
 
 
-class ArticleCU(object):
+class ArticleCreateAPIView(CreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleCreateUpdateSerializer
-    permission_classes = (IsOwnerOrReadOnly,)
 
-    def pre_save(self, obj):
-        obj.user = self.request.user
-
-
-class ArticleListAPIView(ArticleMixin, ListAPIView):
-    pass
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
-class ArticleDetailAPIView(ArticleMixin, RetrieveAPIView):
-    pass
+class ArticleListAPIView(ListAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [AllowAny]
 
 
-class ArticleCreateAPIView(ArticleCU, CreateAPIView):
-    pass
+class ArticleDetailAPIView(RetrieveAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [IsOwnerOrReadOnly]
 
 
-class ArticleUpdateAPIView(ArticleCU, RetrieveUpdateAPIView):
-    pass
+class ArticleUpdateAPIView(RetrieveUpdateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleCreateUpdateSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
 
 
-class ArticleDeleteAPIView(ArticleMixin, DestroyAPIView):
-    pass
+class ArticleDeleteAPIView(DestroyAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [IsOwnerOrReadOnly]
