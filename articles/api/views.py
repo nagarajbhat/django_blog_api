@@ -7,6 +7,7 @@ from rest_framework.generics import (
 
 from articles.models import Article
 from .serializers import ArticleSerializer
+from .serializers import ArticleCreateUpdateSerializer
 from .permissions import IsOwnerOrReadOnly
 
 
@@ -16,7 +17,16 @@ class ArticleMixin(object):
     permission_classes = (IsOwnerOrReadOnly,)
 
     def pre_save(self, obj):
-        obj.owner = self.request.user
+        obj.user = self.request.user
+
+
+class ArticleCU(object):
+    queryset = Article.objects.all()
+    serializer_class = ArticleCreateUpdateSerializer
+    permission_classes = (IsOwnerOrReadOnly,)
+
+    def pre_save(self, obj):
+        obj.user = self.request.user
 
 
 class ArticleListAPIView(ArticleMixin, ListAPIView):
@@ -26,11 +36,14 @@ class ArticleListAPIView(ArticleMixin, ListAPIView):
 class ArticleDetailAPIView(ArticleMixin, RetrieveAPIView):
     pass
 
-class ArticleCreateAPIView(ArticleMixin, CreateAPIView):
+
+class ArticleCreateAPIView(ArticleCU, CreateAPIView):
     pass
 
-class ArticleUpdateAPIView(ArticleMixin, RetrieveUpdateAPIView):
+
+class ArticleUpdateAPIView(ArticleCU, RetrieveUpdateAPIView):
     pass
+
 
 class ArticleDeleteAPIView(ArticleMixin, DestroyAPIView):
     pass

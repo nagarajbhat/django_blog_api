@@ -33,6 +33,8 @@ REST_FRAMEWORK_DOCS = {
     # 'HIDE_DOCS': True  # Default: False
 }
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'articles',
     'rest_framework',
-    'rest_framework_docs'
+    'rest_framework_docs',  
+    'accounts',
+    'django_extensions'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -137,3 +141,25 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL  ='/media/'
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     'rest_framework.parsers.JSONParser',
+    # )
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+         #'rest_framework.authentication.SessionAuthentication',
+         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        #'rest_framework.authentication.BasicAuthentication'
+
+    ), 
+    "DEFAULT_PERMISSION_CLASSES": (
+        'rest_framework.permissions.IsAuthenticated',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
+}

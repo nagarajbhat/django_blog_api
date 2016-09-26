@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Article(models.Model):
-    owner = models.ForeignKey(User,default=1)
+    user = models.ForeignKey(User,blank=True,default=1)
     title = models.CharField(max_length=140)
     body = models.TextField()
     date = models.DateTimeField(
@@ -13,3 +13,5 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+        
+        
