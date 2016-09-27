@@ -1,3 +1,5 @@
+<!-- The following page is used to change the modify the default template of drf docs -->
+
 {% extends "rest_framework_docs/base.html" %}
 
 {% block github_badge %}
@@ -14,7 +16,11 @@
 </div>
 {% endblock %}
 
-{% block footer %}<div class="footer">
+ 
+               
+{% block footer %}
+ {% include "moredocs.html"%}
+<div class="footer">
  <div class="links">
           
           <a href="https://github.com/nagarajbhat/django_blog_api/"><i class="fa fa-github"></i></a>

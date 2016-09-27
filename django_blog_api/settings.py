@@ -163,3 +163,25 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     )
 }
+
+
+
+
+"""
+
+Curl tests(in cmd)
+Please change the vaules if you're using the following tests:
+
+Register:
+curl -X POST -d "username=user1&&email=user1@user1.com&&email2=user1@user1.com&&password=firstuser" http://127.0.0.1:8000/api/users/register/
+
+Token generation:
+curl -X POST -d "username=user1&&password=firstuser" http://127.0.0.1:8000/api/auth/token
+
+Create Article:
+curl -X POST -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzQ5NDY4MjEsImVtYWlsIjoidXNlcjFAdXNlcjEuY29tIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSJ9.KFkWuxtizF5aPKxi87lHt7imAU_21Sigsd4KqPQPLYs" -d "title=first article&&body=this is the first article" http://127.0.0.1:8000/api/articles/create/
+
+View/Retrieve Articles:
+curl http://127.0.0.1:8000/api/articles/
+
+"""

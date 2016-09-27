@@ -10,29 +10,26 @@
     <!-- css links -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/app.css' %}">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet"> -->
+   
     
     <!-- fonts links -->
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Dosis|Kaushan+Script|Magra|Oleo+Script|Rock+Salt|Shadows+Into+Light|Oswald|Open+Sans|Source+Sans+Pro" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+     
 
 
     <!-- js links -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-     <script src="{% static 'blog/js/typed/js/typed.js' %}"></script>
-    
+        
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <!-- scrollr.js -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    
     <script src="{% static 'blog/js/app.js' %}"></script>
 
     
 
-    <title>Social Blog</title>
+    <title>Django Blog API</title>
 </head>
 <body >
        
@@ -43,24 +40,18 @@
         </div>
     
         <div class="row" id="content" >
-        <!-- data-0="color:rgb(144,104,190);" -->
-         <!-- data-100="color:rgb(0,0,0);"   -->
+        
         
             <div class="col-md-12">
                 <center>
+                <p>Hello there</p>
                 <div class="container" id="commoncontent">
                 {% block content %}
-
                 {% endblock %}
                 </div>
                 </center>
-        
-
-                {% block home %}
-                {% endblock %}
-                        
-        
-            
+                      
+           
         </div>
     </div>
     <br>

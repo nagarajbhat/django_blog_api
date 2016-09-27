@@ -1,0 +1,78 @@
+<!-- The following page is used to change the modify the default template of drf docs -->
+
+
+
+<br>
+<br>
+<hr>
+<!-- Curl tests -->
+<h2>Curl tests(in cmd)</h2>
+
+<p>Please change the vaules if you're using the following tests</p>
+
+<h4>Register</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+                
+                curl -X POST -d "username=user1&&email=user1@user1.com&&email2=user1@user1.com&&password=firstuser" http://django-blog-api.herokuapp.com/api/users/register/
+
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+        
+<h4>Token generation</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+                
+                curl -X POST -d "username=user1&&password=firstuser" http://django-blog-api.herokuapp.com/api/auth/token
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+
+
+
+<h4>Create Article</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+               curl -X POST -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzQ5NDY4MjEsImVtYWlsIjoidXNlcjFAdXNlcjEuY29tIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSJ9.KFkWuxtizF5aPKxi87lHt7imAU_21Sigsd4KqPQPLYs" -d "title=first article&&body=this is the first article" http://django-blog-api.herokuapp.com/api/articles/create/
+
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+<h4>View/Retrieve Articles</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+               curl http://django-blog-api.herokuapp.com/api/articles/
+
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+		
+
+<br>
+<br>
+<hr>
