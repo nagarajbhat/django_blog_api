@@ -1,10 +1,12 @@
 <!-- The following page is used to  modify the default template of drf docs -->
 
 <!-- The class values used such as "panel-heading" are obtained from source code of drf docs -->
+{% load staticfiles %}
 
 <br>
 <br>
 <hr>
+
 <!-- Curl tests -->
 <h2>Curl tests(in cmd)</h2>
 
@@ -101,6 +103,143 @@
         </div>
         </div>
         </div>
+
+<br>
+<br>
+<hr>
+
+<!--How to use the this website to test the API's -->
+
+<h2>How to use the this website to test the API's</h2>
+<br>
+<div>
+<h4>1. Generate token</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To generate token click on <i class="fa fa-plug"></i> in /api/auth/token/ and provide username and passoword 
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/token.jpg' %}">
+</center>
+</div>
+<br>
+
+<div>
+<h4>2. Register</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To register click on <i class="fa fa-plug"></i> in /api/users/register/ and provide username,email and passoword
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/register.jpg' %}">
+</center>
+</div>
+<br>
+
+<div>
+<h4>3. Create Article</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To Create Article click on <i class="fa fa-plug"></i> in /api/article/create/ and provide title,body and token in header for authorization.
+			Token value should be preceeded by "JWT" as shown below.
+              </h6>	 
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/create_article.jpg' %}">
+</center>
+</div>
+<br>
+
+<div>
+<h4>4. View/Retrieve Article</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To View Article click on <i class="fa fa-plug"></i> in /api/article/ and press send.
+              </h6>	 
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/view_article.jpg' %}">
+</center>
+</div>
+<br>
+
+<div>
+<h4>5. Create Comment</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To Create Comment click on <i class="fa fa-plug"></i> in /api/article/&ltpk&gt/comment/create and provide text,article primary key value and token in header for authorization.
+			Token value should be preceeded by "JWT" as shown below.
+			Also &ltpk&gt in URL endpoint should be replaced by article primary key value.
+              </h6>	 
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/create_comment.jpg' %}">
+</center>
+</div>
+<br>
+
+<div>
+<h4>6. View/Retrieve Comment</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			To View Comment click on <i class="fa fa-plug"></i> in /api/article/&ltpk&gt/comment/ and replace URL endpoint by article primary key value
+              </h6>	 
+              </div>
+        </div>
+        </div>
+        </div>
+        <br>
+<center>
+<img src="{% static 'docs/img/view_article.jpg' %}">
+</center>
+</div>
+<br>
 
 <br>
 <br>
