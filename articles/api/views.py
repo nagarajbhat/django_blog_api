@@ -10,6 +10,12 @@ from .serializers import ArticleSerializer
 from .serializers import ArticleCreateUpdateSerializer
 from .permissions import IsOwnerOrReadOnly
 
+
+
+from articles.models import Comment
+from .serializers import CommentSerializer
+from .serializers import CommentCreateUpdateSerializer
+
 from rest_framework.permissions import (
     AllowAny,
     IsAuthenticated,
@@ -51,3 +57,27 @@ class ArticleDeleteAPIView(DestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
+
+
+
+
+class CommentCreateAPIView(CreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentCreateUpdateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class CommentListAPIView(ListAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [AllowAny]
+
+
+class CommentDetailAPIView(RetrieveAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+

@@ -1,6 +1,6 @@
-<!-- The following page is used to change the modify the default template of drf docs -->
+<!-- The following page is used to  modify the default template of drf docs -->
 
-
+<!-- The class values used such as "panel-heading" are obtained from source code of drf docs -->
 
 <br>
 <br>
@@ -71,7 +71,36 @@
         </div>
         </div>
         </div>
-		
+
+<h4>View/Retrieve Comments</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			curl  http://django-blog-api.herokuapp.com/api/articles/1/comments/
+
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
+
+<h4>Create Comment</h4>
+      <div class="panel panel-default endpoint">
+
+        <div class="panel-heading">
+        <div class="row">
+        	<div col-md-12>
+        	 <h6 class="panel-title title">
+			curl -X POST -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzUwMDY5MTIsImVtYWlsIjoidXNlcjFAdXNlcjEuY29tIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9.gz0wTgqc18K0hMSZW1aYDbH_y3gHj9zk7r3mCpZ8Y5g" -d "text=third comment&&article=1" http://django-blog-api.herokuapp.com/api/articles/1/comments/create/
+
+              </h6>	
+              </div>
+        </div>
+        </div>
+        </div>
 
 <br>
 <br>

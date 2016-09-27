@@ -44,12 +44,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #here are my apps
     'articles',
-    'rest_framework',
-    'rest_framework_docs',  
     'accounts',
-    'django_extensions'
+    #these are external apps
+    'rest_framework',
+    'rest_framework_docs',  #this app is used to generate api docs(drf docs)
+    'django_extensions' #this app is used to reset database and contains various other facilities
 ]
+
+"""
+command to reset database using django_extensions:
+python ./manage.py reset_db --router=default
+"""
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,8 +149,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL  ='/media/'
 
-
-
+"""
+ This is to make default authentication class as jwt(JSONWebTokenAuthentication)
+"""
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -183,5 +191,12 @@ curl -X POST -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHA
 
 View/Retrieve Articles:
 curl http://127.0.0.1:8000/api/articles/
+
+View/Retrieve Comment:
+curl  http://127.0.0.1:8000/api/articles/1/comments/
+
+Create Comment:
+curl -X POST -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzUwMDY5MTIsImVtYWlsIjoidXNlcjFAdXNlcjEuY29tIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9.gz0wTgqc18K0hMSZW1aYDbH_y3gHj9zk7r3mCpZ8Y5g" -d "text=third comment&&article=1" http://127.0.0.1:8000/api/articles/1/comments/create/
+
 
 """
