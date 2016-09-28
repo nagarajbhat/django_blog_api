@@ -14,7 +14,7 @@ And an API endpoint for the user to post a comment on an article
 Steps to get started
 --------------------
 
-1.clone this repository
+1. clone this repository
 
 		$ git clone https://github.com/nagarajbhat/django_blog_api.git
 
@@ -22,9 +22,9 @@ Steps to get started
 
 		$ cd django_blog_api
 
-3. (recommended but not mandatory) create a new virtualenv space to isolate django config from the rest of the system
+3. (recommended but not mandatory) create a new virtualenv space to isolate django config from the rest of the system.
 
-    $ virtualenv -p python3 name_of_my_new_virtualenv
+    	$ virtualenv -p python3 name_of_my_new_virtualenv
     	
 
 4.  Install dependencies through pip
