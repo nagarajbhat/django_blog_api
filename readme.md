@@ -17,6 +17,7 @@ Steps to get started
 1.clone this repository
 
 		$ git clone https://github.com/nagarajbhat/django_blog_api.git
+
 2. Enter into project directory
 
 		$ cd django_blog_api
@@ -24,16 +25,16 @@ Steps to get started
 3. (recommended but not mandatory) create a new virtualenv space to isolate django config from the rest of the system
 
     $ virtualenv -p python3 name_of_my_new_virtualenv
-    	$ git clone https://github.com/nagarajbhat/rails_hometravel.git
+    	
 
 4.  Install dependencies through pip
 
-    	$ pip install -r requirements.txt
+    	$ pip3 install -r requirements.txt
 
 5. run migrations
 
-		$python manage.py makemigrations
-		$python manage.py migrate
+		$python3 manage.py makemigrations
+		$python3 manage.py migrate
 
 6. create superuser(if necessary)
 
@@ -51,7 +52,7 @@ Steps to get started
 Note:
 You can reset the db using the command(provided by django-extensions):
 
-		$ python ./manage.py reset_db --router=default
+		$ python3 ./manage.py reset_db --router=default
 
 
 Curl tests(in cmd)
