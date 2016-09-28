@@ -1,3 +1,7 @@
+"""
+contains class based views
+"""
+
 from django.contrib.auth.models import User
 
 from rest_framework.response import Response
@@ -25,12 +29,14 @@ from .serializers import (
     UserLoginSerializer,
 )
 
+#register
 
 class UserCreateAPIView(CreateAPIView):
     serializer_class = UserCreateSerializer
     queryset = User.objects.all()
     permission_classes = [AllowAny]
 
+#login
 
 class UserLoginAPIView(APIView):
     permission_classes = [AllowAny]

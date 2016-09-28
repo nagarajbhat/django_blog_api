@@ -9,7 +9,7 @@ from rest_framework.serializers import (
     ValidationError
 )
 
-
+#This is used by ArticleSerializer to display contents of the user to which the comment belongs to
 class UserDetailSerializer(ModelSerializer):
     class Meta:
         model = User
@@ -18,7 +18,10 @@ class UserDetailSerializer(ModelSerializer):
             'email',
         ]
 
+"""
+registraion and validation of emails
 
+"""
 class UserCreateSerializer(ModelSerializer):
     email = EmailField(label='Email Address')
     email2 = EmailField(label='Confirm Email')
@@ -72,6 +75,9 @@ class UserCreateSerializer(ModelSerializer):
         user_obj.save()
         return validated_data
 
+"""
+login
+"""
 
 class UserLoginSerializer(ModelSerializer):
     token = CharField(allow_blank=True, read_only=True)

@@ -11,7 +11,6 @@ from .views import (
 
 from .views import (
     CommentCreateAPIView,
-    CommentDetailAPIView,
     CommentListAPIView,
   )
 

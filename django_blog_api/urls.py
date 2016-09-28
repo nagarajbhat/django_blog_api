@@ -31,3 +31,15 @@ urlpatterns = [
 
 
 ]
+
+"""
+rest_framework_docs(drf docs) genetrates API documentation by providing API's in this application.
+the default template has been modified to include more content.This is done by creating 
+rest_framework_docs/docs.html in templates and overriding the default template, 
+
+moredocs.html in template extends over docs.html
+"""
+
+"""
+api codes for articles and comments are in articles/api
+"""
